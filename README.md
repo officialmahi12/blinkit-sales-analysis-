@@ -1,153 +1,174 @@
 # Blinkit Sales Analysis & Business Intelligence Dashboard
 
-## Project Overview
-This project performs an end-to-end analysis of the Blinkit grocery sales dataset using **Python for exploratory data analysis (EDA)** and **Power BI for business intelligence visualization**.
+![Blinkit Dashboard](Blinkit_Dashboard.png)
 
-The analysis was conducted using Google Collab for Python-based data exploration and Power BI to build an interactive dashboard that highlights key business insights.
+---
 
-The main objective of this project is to analyze Blinkit's retail sales data and identify patterns in **product demand, outlet performance, sales trends, and customer preferences**.
+## What This Project Is About
 
-## Tools & Technologies Used
+Blinkit operates as a last-minute grocery delivery app across India.
+The data behind it — 8,600 rows and 12 columns — tells a very 
+specific story about what people buy, where they buy it from, and 
+which outlets are actually driving revenue.
 
-### Data Analysis
-- Python
-- Pandas
-- Matplotlib
-- Google Colab
+This project takes that raw grocery sales data and works through it 
+in two stages. First, a Python-based exploration in Google Colab to 
+understand what the numbers actually say. Then a Power BI dashboard 
+to make those findings usable for someone who needs to make decisions 
+quickly without digging through spreadsheets.
 
-### Visualization
-- Power BI
+---
 
-### Version Control
-- Git
-- GitHub
+## The Problem I Started With
 
-## Dataset Information
+Blinkit has multiple outlet types, multiple city tiers, and hundreds 
+of product categories. Without breaking the data down properly, it 
+is impossible to know which outlets deserve more investment, which 
+product categories are carrying the revenue, and whether customers 
+in Tier 3 cities behave differently from those in Tier 1.
 
-The dataset contains information about grocery items sold by Blinkit, including product attributes, outlet characteristics, sales performance, and customer ratings.
+That is what this project tries to answer.
 
-### Dataset Columns
+---
 
-| Column | Description |
-|------|-------------|
-| Item Fat Content | Indicates whether the product is Low Fat or Regular |
-| Item Identifier | Unique identifier for each product |
-| Item Type | Category of the item |
-| Outlet Establishment Year | Year the outlet was established |
-| Outlet Identifier | Unique outlet ID |
-| Outlet Location Type | City tier classification |
-| Outlet Size | Size of the outlet |
-| Outlet Type | Type of retail store |
-| Item Visibility | Visibility of the item in the store |
-| Item Weight | Weight of the product |
-| Sales | Total sales value |
-| Rating | Customer rating for the product |
+## The Numbers That Came Out
 
-## Key Performance Indicators (KPIs)
+Total sales across the dataset :- $1.20M
+Average sales per transaction :- $141
+Total items sold :- 8,523
+Average customer rating :- 3.9 out of 5
 
-The following KPIs were calculated using Python:
+These four numbers sit at the top of the dashboard and update 
+instantly whenever any filter is applied.
 
-| KPI | Value |
-|----|------|
-| Total Sales | $1.20M |
-| Average Sales | $141 |
-| Number of Items Sold | 8,523 |
-| Average Rating | 3.9 |
+---
 
-These KPIs provide a quick summary of Blinkit's overall sales performance.
+## What the Data Showed
 
-## Exploratory Data Analysis
+### Fat Content Split:-
 
-### Sales by Fat Content
+64.6% of all sales came from Low Fat products.
+Regular products accounted for the remaining 35.4%.
 
-- Low Fat Products → **64.6%**
-- Regular Products → **35.4%**
+Customers are clearly leaning toward healthier options. This is 
+not a marginal difference — nearly two thirds of all purchases 
+are low fat. That is a pattern worth paying attention to for 
+inventory planning.
 
-Insight:  
-Customers show a strong preference for **low-fat grocery products**, suggesting growing demand for healthier options.
+### Top Performing Product Categories:-
 
-### Sales by Product Category
+Fruits and Vegetables :- $178K
+Snack Foods :- $175K
+Household Items :- $135K
+Frozen Foods :- $118K
+Dairy :- $101K
 
-Top performing categories:
+The top two categories are almost identical in revenue. Blinkit 
+is being used primarily for daily essentials and quick grocery 
+runs — not for specialty or premium products.
 
-| Rank | Category | Sales |
-|----|----|----|
-| 1 | Fruits & Vegetables | 178K |
-| 2 | Snack Foods | 175K |
-| 3 | Household Items | 135K |
-| 4 | Frozen Foods | 118K |
-| 5 | Dairy | 101K |
+### Outlet Size Performance:-
 
-Insight:  
-Blinkit is mainly used for **daily grocery essentials and quick purchases**.
+Medium outlets :- 42% of total sales
+Small outlets :- 37% of total sales
+High outlets :- 21% of total sales
 
+Medium sized outlets are the strongest performers. Large format 
+stores are not driving proportionally more revenue despite 
+presumably higher operating costs.
 
-### Sales by Outlet Size
+### Outlet Location — City Tier Breakdown:-
 
-| Outlet Size | Contribution |
-|----|----|
-| Medium | 42% |
-| Small | 37% |
-| High | 21% |
+Tier 3 cities :- $472.13K
+Tier 2 cities :- $393.15K
+Tier 1 cities :- $336.40K
 
-Insight:  
-Medium sized outlets generate the highest revenue contribution.
+This was the most unexpected finding. Tier 3 cities generated 
+the highest revenue — nearly $136K more than Tier 1. Quick 
+commerce demand is clearly not limited to metros. Smaller cities 
+are driving the majority of volume.
 
-### Sales by Outlet Location Tier
+### Outlet Type Comparison:-
 
-| Tier | Sales |
-|----|----|
-| Tier 3 | Highest |
-| Tier 2 | Medium |
-| Tier 1 | Lowest |
+Supermarket Type 1 :- $787.55K from 5,577 items, avg rating 3.92
+Grocery Store :- $151.94K from 1,083 items, avg rating 3.93
+Supermarket Type 2 :- $131.48K from 928 items, avg rating 3.93
+Supermarket Type 3 :- $130.71K from 935 items, avg rating 3.91
 
-Insight:  
-Tier 3 cities contribute the largest share of sales, indicating strong demand for quick commerce in smaller cities.
+Supermarket Type 1 dominates by a massive margin. It handles 
+nearly 5 times the revenue of the next closest outlet type.
 
-### Sales by Outlet Establishment Year
+### Outlet Establishment Year:-
 
-Sales trends show relatively stable performance across different outlet establishment years.
+Sales peaked in 2018 at $205K and have since stabilized around 
+$129K to $131K in recent years. Outlets established between 
+2015 and 2018 show the strongest performance, suggesting a 
+maturity curve where outlets take a few years to build volume.
 
-Insight:  
-Older outlets may benefit from stronger customer loyalty and established locations.
+---
 
-## Power BI Dashboard
+## How the Dashboard Works
 
-An interactive Power BI dashboard was created to visualize the key metrics and insights derived from the analysis.
+The left panel has 3 filter slicers:-
 
-The dashboard includes:
+Outlet Location Type :- Switch between Tier 1, Tier 2, Tier 3 
+or view all together
 
-- Total Sales
-- Average Sales
-- Number of Items Sold
-- Average Rating
-- Sales by Product Category
-- Sales by Outlet Size
-- Sales by Outlet Location
-- Sales by Outlet Establishment Year
+Outlet Size :- Filter by Small, Medium or High to compare 
+how size affects every metric on the page
 
-This dashboard enables stakeholders to quickly understand Blinkit's sales performance and outlet trends.
+Item Type :- Narrow down to any specific product category 
+to see its sales, average rating and item count in isolation
 
-## Key Business Insights
+Every chart, KPI card and table on the dashboard updates the 
+moment you change any of these filters. The 4 metric buttons 
+at the top — Total Sales, Avg Sales, No of Items, Avg Rating — 
+let you switch the primary measure being shown across all visuals 
+simultaneously using a DAX field parameter.
 
-1. Low-fat products dominate overall sales.
-2. Fruits & Vegetables and Snack Foods generate the highest revenue.
-3. Tier 3 cities contribute the most to total sales.
-4. Medium-sized outlets perform better compared to small and large outlets.
-5. Blinkit demand is primarily driven by daily grocery essentials.
+---
 
-## Repository Structure
+## What I Built Technically
 
-```
-blinkit-sales-analysis
-│
-├── Blinkit_Analysis.ipynb        # Python EDA using Google Colab
-├── blinkit_dashboard.pbix        # Power BI dashboard
-├── blinkit_data.csv              # Dataset used for analysis
-├── BlinkIT Grocery Data.xlsx     # Original dataset
-└── README.md                     # Project documentation
-```
+The dataset has 8,600 rows and 12 columns covering item attributes, 
+outlet characteristics, sales values and customer ratings.
 
-## Conclusion
+In Python I used Pandas to clean the data, handle missing values 
+in Item Weight and Outlet Size, and standardise the fat content 
+labels which had inconsistent entries like LF and low fat instead 
+of Low Fat.
 
-This project demonstrates how raw retail sales data can be transformed into actionable business insights using Python-based data analysis and Power BI visualization. The analysis highlights key factors influencing Blinkit's sales performance, including product categories, outlet size, and location-based demand patterns.
+In Power BI I built the full data model, wrote DAX measures for 
+all KPIs, and built a field parameter so the 4 metric toggle 
+buttons work across every visual with a single click.
+
+---
+
+## Tools Used:-
+
+Python, Pandas, Matplotlib, Google Colab, Power BI, DAX,
+Power Query, Field Parameters
+
+---
+
+## Files in This Repository:-
+
+Blinkit_Dashboard.png        :- Dashboard screenshot
+blinkit_dashboard.pbix       :- Full working Power BI file
+Blinkit_Analysis.ipynb       :- Python EDA notebook
+blinkit_data.csv             :- Cleaned dataset
+BlinkIT Grocery Data.xlsx    :- Original raw dataset
+
+---
+
+## What I Took Away From This
+
+The Tier 3 city finding changed how I think about quick commerce 
+in India. Every assumption going in was that metros would dominate. 
+The data said the opposite — $472K from Tier 3 versus $336K from 
+Tier 1 is not a small gap.
+
+The other thing that stood out was how little outlet size mattered 
+compared to outlet type. A medium Supermarket Type 1 consistently 
+outperformed larger grocery stores. Size is not the variable that 
+drives performance here — format is.
